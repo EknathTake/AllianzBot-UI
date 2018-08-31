@@ -1,0 +1,28 @@
+<form>
+  <label><em>YourQuestion</em></label>
+  <input id="searchValue" name="serachValue" type="text" class="form-control" [(ngModel)]="searchValue">
+  <br>
+  <button
+    class="btn btn-primary"
+    (click)="onGetServerSearch(searchValue)">Send to server</button>
+</form>
+<br>
+<div class="container">
+  <div class="panel-group">
+    <div class="panel panel-primary">
+      <div class="panel-heading">Answer</div>
+      <div class="panel-body">
+        <ul class="list-group" *ngFor="let ans of answers">
+          <li class="list-group-item"><p>{{ans.answer}}</p></li>
+          <hr>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--
+<p>{{searchValue}}</p>
+<p>{{showData}}</p>
+-->
+
