@@ -8,6 +8,7 @@ import { BotHomeScreenComponent } from './bot-home-screen/bot-home-screen.compon
 import { BotSearchResultComponent } from './bot-search-result/bot-search-result.component';
 import { HeaderComponent } from './header/header.component';
 import { HttpModule } from '@angular/http';
+import {NgxSpinnerModule} from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HttpModule } from '@angular/http';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    NgxSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
