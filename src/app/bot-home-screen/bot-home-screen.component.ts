@@ -10,7 +10,7 @@ import {NgxSpinnerService} from 'ngx-spinner';
 export class BotHomeScreenComponent implements OnInit {
   searchValue = '';
   answers = [{content: 'just first answer test'}];
-  newDocument = {id: '', likes: 0, dislikes: 0, score: 0, answer: '', question: ''};
+  newDocument = {id: '', likes: 0, score: 0, answer: '', question: ''};
 
   constructor(private serverService: ServerService, private spinner: NgxSpinnerService) {
   }
@@ -39,8 +39,8 @@ export class BotHomeScreenComponent implements OnInit {
     this.newDocument.id = oldDocument.id;
     this.newDocument.answer = oldDocument.answer;
     this.newDocument.question = query;
-    this.newDocument.likes = oldDocument.likes + 1;
-    this.newDocument.dislikes = oldDocument.dislikes;
+    this.newDocument.likes = oldDocument.likes + 1432;
+   // this.newDocument.dislikes = oldDocument.dislikes;
     this.newDocument.score = oldDocument.score;
     this.serverService.putLike(this.newDocument)
       .subscribe(
@@ -59,8 +59,8 @@ export class BotHomeScreenComponent implements OnInit {
   sendDisLike(oldDocument, query) {
     this.newDocument.id = oldDocument.id;
     this.newDocument.answer = oldDocument.answer;
-    this.newDocument.dislikes = oldDocument.dislikes - 1;
-    this.newDocument.likes = oldDocument.likes;
+   // this.newDocument.dislikes = oldDocument.dislikes - 1234.0;
+    this.newDocument.likes = oldDocument.likes - 1234;
     this.newDocument.question = query;
     this.newDocument.score = oldDocument.score;
     this.serverService.putDisLike(this.newDocument)
