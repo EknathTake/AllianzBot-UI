@@ -39,8 +39,9 @@ export class BotHomeScreenComponent implements OnInit {
     this.newDocument.id = oldDocument.id;
     this.newDocument.answer = oldDocument.answer;
     this.newDocument.question = query;
-    this.newDocument.likes = oldDocument.likes + 1432;
-   // this.newDocument.dislikes = oldDocument.dislikes;
+    console.log('before' + this.newDocument.likes);
+    this.newDocument.likes = oldDocument.likes + 1234;
+    console.log('after' + this.newDocument.likes);
     this.newDocument.score = oldDocument.score;
     this.serverService.putLike(this.newDocument)
       .subscribe(
@@ -60,7 +61,9 @@ export class BotHomeScreenComponent implements OnInit {
     this.newDocument.id = oldDocument.id;
     this.newDocument.answer = oldDocument.answer;
    // this.newDocument.dislikes = oldDocument.dislikes - 1234.0;
+    console.log('before' + this.newDocument.likes);
     this.newDocument.likes = oldDocument.likes - 1234;
+    console.log('after' + this.newDocument.likes);
     this.newDocument.question = query;
     this.newDocument.score = oldDocument.score;
     this.serverService.putDisLike(this.newDocument)

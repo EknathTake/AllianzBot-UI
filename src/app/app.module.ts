@@ -9,6 +9,7 @@ import { BotSearchResultComponent } from './bot-search-result/bot-search-result.
 import { HeaderComponent } from './header/header.component';
 import { HttpModule } from '@angular/http';
 import {NgxSpinnerModule} from 'ngx-spinner';
+import {MDBBootstrapModule} from 'angular-bootstrap-md';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {NgxSpinnerModule} from 'ngx-spinner';
     AppRoutingModule,
     FormsModule,
     HttpModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    MDBBootstrapModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
