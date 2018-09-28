@@ -1,0 +1,77 @@
+<ul class="list-group">
+  <li class="list-group-item">
+    <p class="mat-h1">Question: {{questions[currentIndex].question}}</p>
+    <div *ngIf="questions[currentIndex].isMultiAnswer; else multiAnswerBlock">
+      <section *ngFor="let objective of questions[currentIndex].objectives">
+        <mat-checkbox class="mat-h2" >{{objective}}</mat-checkbox>
+        <br><br>
+      </section>
+    </div>
+    <ng-template #multiAnswerBlock>
+      <mat-radio-group *ngFor="let objective of questions[currentIndex].objectives">
+        <mat-radio-button class="mat-h2" value="{{objective}}">
+          {{objective}}
+        </mat-radio-button>
+        <br>
+      </mat-radio-group>
+    </ng-template>
+    <span *ngIf="currentIndex==0; else btnEnabled">
+      <button mat-raised-button disabled>Previous</button> &nbsp;&nbsp;
+    </span>
+    <ng-template #btnEnabled>
+      <button mat-raised-button color="primary" (click)="loadPreviousQuestionAt(currentIndex)">Previous</button> &nbsp;&nbsp;
+    </ng-template>
+
+    <button mat-raised-button color="primary">Finish</button> &nbsp;&nbsp;
+
+    <span *ngIf="currentIndex==totalQuestions - 1 ; else btnNextEnabled">
+      <button mat-raised-button disabled>Next</button> &nbsp;&nbsp;
+    </span>
+    <ng-template #btnNextEnabled>
+      <button mat-raised-button color="primary" (click)="loadNextQuestionAt(currentIndex)">Next</button> &nbsp;&nbsp;
+    </ng-template>
+  </li>
+</ul>
+
+<!--<ul class="list-group" *ngFor="let question of questions.allianzBotQuestions">
+  <li class="list-group-item">
+    <div>
+      <h1>Question: {{question.question}}</h1>
+      <div>
+        <mat-radio-group>
+          <mat-radio-button value="{{question.objectives[0]}}">{{question.objectives[0]}}</mat-radio-button>
+          <br>
+          <mat-radio-button value="{{question.objectives[1]}}">{{question.objectives[1]}}</mat-radio-button>
+          <br>
+          <mat-radio-button value="{{question.objectives[2]}}">{{question.objectives[2]}}</mat-radio-button>
+          <br>
+          <mat-radio-button value="{{question.objectives[3]}}">{{question.objectives[3]}}</mat-radio-button>
+          <br>
+        </mat-radio-group>
+      </div>
+
+      <button mat-raised-button color="primary">Previous</button> &nbsp;&nbsp;
+      <button mat-raised-button color="primary">Finish</button> &nbsp;&nbsp;
+      <button mat-raised-button color="primary">Next</button> &nbsp;&nbsp;
+    </div>
+  </li>
+</ul>-->
+
+
+<!--
+<div>
+  <h1>Question: What is TOSCA call?</h1>
+  <div>
+  <mat-radio-group>
+    <mat-radio-button value="1">Option 1</mat-radio-button><br>
+    <mat-radio-button value="2">Option 2</mat-radio-button><br>
+    <mat-radio-button value="3">Option 3</mat-radio-button><br>
+    <mat-radio-button value="4">Option 4</mat-radio-button><br>
+  </mat-radio-group>
+  </div>
+
+  <button mat-raised-button color="primary">Previous</button> &nbsp;&nbsp;
+  <button mat-raised-button color="primary">Finish</button> &nbsp;&nbsp;
+  <button mat-raised-button color="primary">Next</button> &nbsp;&nbsp;
+</div>
+-->

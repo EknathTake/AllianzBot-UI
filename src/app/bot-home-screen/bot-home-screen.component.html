@@ -2,6 +2,9 @@
   <label><em>YourQuestion</em></label>
   <input id="searchValue" name="serachValue" type="text" class="form-control" [(ngModel)]="searchValue">
   <br>
+  <!--<mat-form-field>
+    <input matInput name="serachValue" [(ngModel)]="searchValue" placeholder="Ask me your question!" style="width: 100%;">
+  </mat-form-field>-->
   <button
     class="btn btn-primary"
     (click)="onGetServerSearch(searchValue)">Send to server
