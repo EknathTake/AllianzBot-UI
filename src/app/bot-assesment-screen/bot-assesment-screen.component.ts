@@ -14,7 +14,7 @@ export class BotAssesmentScreenComponent implements OnInit {
     question: '',
     objectives: [{
       objective: '',
-      isChecked: false
+      checked: false
     }],
     isMultiAnswer: false,
     userAnswer: '',
@@ -22,6 +22,10 @@ export class BotAssesmentScreenComponent implements OnInit {
   };
   totalQuestions: number;
   currentIndex = 0;
+  objectives = [{
+    objective: '',
+    checked: false
+  }];
 
   constructor(private serverService: ServerService, private spinner: NgxSpinnerService,
               private route: ActivatedRoute) {
@@ -48,10 +52,16 @@ export class BotAssesmentScreenComponent implements OnInit {
   }
 
   loadNextQuestionAt(index: number) {
+    console.log('posting succesfully :' + this.questions[this.currentIndex]);
+    this.serverService.postUserChoiceAnswer(this.questions[this.currentIndex]).subscribe((response) =>{
+        const value = response.json();
+        console.log(value)
+    });
+    console.log('posted succesfully :' + this.questions[this.currentIndex]);
+
     if (index < this.totalQuestions - 1) {
       this.currentIndex = index + 1;
     }
-    console.log('currentIndex :' + this.currentIndex);
   }
 
   loadPreviousQuestionAt(index: number) {
@@ -66,13 +76,25 @@ export class BotAssesmentScreenComponent implements OnInit {
     this.questions = c;
   }
 
-  changeSelectedState(curIndex, arrIndex) {
-    if (this.questions[curIndex].objectives[arrIndex].checked) {
-      this.questions[curIndex].objectives[arrIndex].checked = false;
+  changeSelectedState(curIndex, arrIndex, isRadioButton) {
+    if (isRadioButton) {
+      this.objectives = this.questions[curIndex].objectives;
+      for (let i = 0; i < this.objectives.length; i++) {
+        if (arrIndex === i) {
+          this.objectives[i].checked = true;
+         // this.questions[curIndex].userAnswer =
+        } else {
+          this.objectives[i].checked =  false;
+        }
+      }
     } else {
-      this.questions[curIndex].objectives[arrIndex].checked = true;
+      if (this.questions[curIndex].objectives[arrIndex].checked) {
+        this.questions[curIndex].objectives[arrIndex].checked = false;
+      } else {
+        this.questions[curIndex].objectives[arrIndex].checked = true;
+      }
     }
-    console.log(this.questions[curIndex].objectives[arrIndex].checked);
+    console.log(this.questions);
   }
 
 }

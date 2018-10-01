@@ -28,7 +28,7 @@ export class ServerService {
     return this.http.get(baseUrl + 'assesment/questions?topic=' + topic);
   }
 
-  postUserChoiceAnswer(userChoiceAnswer){
+  postUserChoiceAnswer(userChoiceAnswer) {
     return this.http.post(baseUrl + 'assesment/answer', userChoiceAnswer, {headers: this.headers});
   }
 }
