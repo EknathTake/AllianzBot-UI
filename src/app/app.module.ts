@@ -10,7 +10,6 @@ import { HeaderComponent } from './bot-header-screen/header.component';
 import { HttpModule } from '@angular/http';
 import {NgxSpinnerModule} from 'ngx-spinner';
 import {MDBBootstrapModule} from 'angular-bootstrap-md';
-import {RouterModule, Routes} from '@angular/router';
 import { BotPageNotFoundScreenComponent } from './bot-page-not-found-screen/bot-page-not-found-screen.component';
 import { BotTrainingScreenComponent } from './bot-training-screen/bot-training-screen.component';
 import {
@@ -22,31 +21,6 @@ import {
   MatRadioModule
 } from '@angular/material';
 import { BotAssesmentScreenComponent } from './bot-assesment-screen/bot-assesment-screen.component';
-
-
-const routes: Routes = [
-  {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
-  },
-  {
-    path: 'home',
-    component: BotHomeScreenComponent
-  },
-  {
-    path: 'training/:topic',
-    component: BotTrainingScreenComponent
-  },
-  {
-    path: 'assesment/:topic',
-    component: BotAssesmentScreenComponent
-  },
-  {
-    path: '**',
-    component: BotPageNotFoundScreenComponent
-  }
-];
 
 @NgModule({
   declarations: [
@@ -71,8 +45,7 @@ const routes: Routes = [
     MatButtonToggleModule,
     MatMenuModule,
     MatCheckboxModule,
-    MDBBootstrapModule.forRoot(),
-    RouterModule.forRoot(routes)
+    MDBBootstrapModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

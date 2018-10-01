@@ -10,8 +10,15 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class BotAssesmentScreenComponent implements OnInit {
   questions = {
-    questionId: 0, question: '', objectives: [], isMultiAnswer: false,
-    userAnswer: '', topic: ''
+    questionId: 0,
+    question: '',
+    objectives: [{
+      objective: '',
+      isChecked: false
+    }],
+    isMultiAnswer: false,
+    userAnswer: '',
+    topic: ''
   };
   totalQuestions: number;
   currentIndex = 0;
@@ -57,6 +64,15 @@ export class BotAssesmentScreenComponent implements OnInit {
   changeCurrent(c) {
     this.totalQuestions = c.length;
     this.questions = c;
+  }
+
+  changeSelectedState(curIndex, arrIndex) {
+    if (this.questions[curIndex].objectives[arrIndex].checked) {
+      this.questions[curIndex].objectives[arrIndex].checked = false;
+    } else {
+      this.questions[curIndex].objectives[arrIndex].checked = true;
+    }
+    console.log(this.questions[curIndex].objectives[arrIndex].checked);
   }
 
 }

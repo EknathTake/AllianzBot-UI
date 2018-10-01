@@ -1,27 +1,33 @@
 <ul class="list-group">
   <li class="list-group-item">
+
     <p class="mat-h1">Question: {{questions[currentIndex].question}}</p>
-    <div *ngIf="questions[currentIndex].isMultiAnswer; else multiAnswerBlock">
-      <section *ngFor="let objective of questions[currentIndex].objectives">
-        <mat-checkbox class="mat-h2" >{{objective}}</mat-checkbox>
+
+    <!-- If Question has multiople answer, show Check box-->
+    <div *ngIf="questions[currentIndex].isMultiAnswer; else radioButtonBlock">
+      <section *ngFor="let objective of questions[currentIndex].objectives;  let i = index;">
+        <mat-checkbox class="mat-h2" (change)="changeSelectedState(currentIndex, i)">{{objective.objective}}</mat-checkbox>
         <br><br>
       </section>
     </div>
-    <ng-template #multiAnswerBlock>
-      <mat-radio-group *ngFor="let objective of questions[currentIndex].objectives">
-        <mat-radio-button class="mat-h2" value="{{objective}}">
-          {{objective}}
+    <!-- else show radio buttons-->
+    <ng-template #radioButtonBlock>
+      <mat-radio-group >
+        <mat-radio-button *ngFor="let objective of questions[currentIndex].objectives; let i = index" class="mat-h2" value="{{objective.objective}}" (change)="changeSelectedState(currentIndex, i)">
+          {{objective.objective}}
         </mat-radio-button>
-        <br>
+       <!-- <br>-->
       </mat-radio-group>
     </ng-template>
+
+    <br>
+    <!-- Buttons Previous, Finish and Next -->
     <span *ngIf="currentIndex==0; else btnEnabled">
       <button mat-raised-button disabled>Previous</button> &nbsp;&nbsp;
     </span>
     <ng-template #btnEnabled>
       <button mat-raised-button color="primary" (click)="loadPreviousQuestionAt(currentIndex)">Previous</button> &nbsp;&nbsp;
     </ng-template>
-
     <button mat-raised-button color="primary">Finish</button> &nbsp;&nbsp;
 
     <span *ngIf="currentIndex==totalQuestions - 1 ; else btnNextEnabled">
