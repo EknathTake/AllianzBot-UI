@@ -31,4 +31,8 @@ export class ServerService {
   postUserChoiceAnswer(userChoiceAnswer) {
     return this.http.post(baseUrl + 'assesment/answer', userChoiceAnswer, {headers: this.headers});
   }
+
+  finishAssesment() {
+    return this.http.post(baseUrl + 'assesment/finished', {}, {headers: this.headers});
+  }
 }

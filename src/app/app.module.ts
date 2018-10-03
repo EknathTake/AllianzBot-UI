@@ -21,6 +21,7 @@ import {
   MatRadioModule
 } from '@angular/material';
 import { BotAssesmentScreenComponent } from './bot-assesment-screen/bot-assesment-screen.component';
+import { BotAssesmentResultScreenComponent } from './bot-assesment-result-screen/bot-assesment-result-screen.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { BotAssesmentScreenComponent } from './bot-assesment-screen/bot-assesmen
     HeaderComponent,
     BotPageNotFoundScreenComponent,
     BotTrainingScreenComponent,
-    BotAssesmentScreenComponent
+    BotAssesmentScreenComponent,
+    BotAssesmentResultScreenComponent
   ],
   imports: [
     BrowserModule,

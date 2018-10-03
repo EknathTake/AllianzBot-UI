@@ -24,7 +24,7 @@
     <ng-template #btnEnabled>
       <button mat-raised-button color="primary" (click)="loadPreviousQuestionAt(currentIndex)">Previous</button> &nbsp;&nbsp;
     </ng-template>
-    <button mat-raised-button color="primary">Finish</button> &nbsp;&nbsp;
+    <button mat-raised-button color="primary" (click)="finishAssesment()">Finish</button> &nbsp;&nbsp;
 
     <span *ngIf="currentIndex==totalQuestions - 1 ; else btnNextEnabled">
       <button mat-raised-button disabled>Next</button> &nbsp;&nbsp;

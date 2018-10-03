@@ -52,12 +52,7 @@ export class BotAssesmentScreenComponent implements OnInit {
   }
 
   loadNextQuestionAt(index: number) {
-    console.log('posting succesfully :' + this.questions[this.currentIndex]);
-    this.serverService.postUserChoiceAnswer(this.questions[this.currentIndex]).subscribe((response) =>{
-        const value = response.json();
-        console.log(value)
-    });
-    console.log('posted succesfully :' + this.questions[this.currentIndex]);
+    this.postUserChoiceAnswer();
 
     if (index < this.totalQuestions - 1) {
       this.currentIndex = index + 1;
@@ -97,4 +92,20 @@ export class BotAssesmentScreenComponent implements OnInit {
     console.log(this.questions);
   }
 
+  postUserChoiceAnswer() {
+    console.log('posting succesfully :' + this.questions[this.currentIndex]);
+    this.serverService.postUserChoiceAnswer(this.questions[this.currentIndex]).subscribe((response) =>{
+      const value = response.json();
+      console.log(value);
+    });
+    console.log('posted succesfully :' + this.questions[this.currentIndex]);
+  }
+
+  finishAssesment() {
+    this.postUserChoiceAnswer();
+    this.serverService.finishAssesment().subscribe((response) => {
+      const val = response.json();
+      console.log(val);
+    });
+  }
 }
