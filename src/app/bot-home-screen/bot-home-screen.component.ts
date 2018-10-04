@@ -9,8 +9,8 @@ import {NgxSpinnerService} from 'ngx-spinner';
 })
 export class BotHomeScreenComponent implements OnInit {
   searchValue = '';
-  answers = [{content: ''}];
-  newDocument = {id: '', likes: 0, score: 0, answer: '', question: ''};
+  answers = [];
+  newDocument = {id: '', likes: 0, score: 0, answer: '', question: '', failedLog: '', failedCategory: ''};
 
   constructor(private serverService: ServerService, private spinner: NgxSpinnerService) {
   }

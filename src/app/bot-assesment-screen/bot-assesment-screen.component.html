@@ -1,6 +1,6 @@
 <ul class="list-group">
   <li class="list-group-item">
-    <p class="mat-h1">Question: {{questions[currentIndex].question}}</p>
+    <p class="mat-h1"><b>Question: {{questions[currentIndex].question}}</b></p>
     <!-- If Question has multiople answer, show Check box-->
     <div *ngIf="questions[currentIndex].isMultiAnswer; else radioButtonBlock">
       <section *ngFor="let objective of questions[currentIndex].objectives;  let i = index;">

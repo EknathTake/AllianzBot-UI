@@ -8,27 +8,30 @@
 	</button>
 	<div class="collapse navbar-collapse" id="collapsibleNavbar">
 		<ul class="navbar-nav">
-			<button mat-button [matMenuTriggerFor]="animals" class="bot-nav">Training</button>
-	
-			<mat-menu #animals="matMenu">
-				<a mat-menu-item [matMenuTriggerFor]="testing">Testing</a>
-				<a mat-menu-item [matMenuTriggerFor]="abs_rich_client">ABS Rich Client</a> 
-				<a href='/training/cisl' mat-menu-item>CISL</a>
-			</mat-menu>
-	
-			<mat-menu #testing="matMenu">
-			   <a mat-menu-item href='/training/Smoke Test'>Smoke Test</a>
-			   <a mat-menu-item href='/training/TOSCA'>TOSCA</a> 
-			   <a mat-menu-item href='/training/selenium'>Selenium</a> 
-			   <a mat-menu-item href='/training/dummy'>Dummy</a> 
-			 </mat-menu>
-	
-			<mat-menu #abs_rich_client="matMenu"> 
-				<a href='#' mat-menu-item>Dialog Layer</a> 
-				<a href='#' mat-menu-item>View Layer</a> 
-				<a href='#' mat-menu-item>Business Layer</a>
-				<a href='#' mat-menu-item>Persistent Layer</a> 
-			</mat-menu>
+			<li class="nav-item dropdown">
+				<button mat-button class="bot-nav" (click)="navigateToHome()">Home</button>
+			</li>
+			<li class="nav-item dropdown">
+				<button mat-button [matMenuTriggerFor]="topics" class="bot-nav">Trainings</button>
+
+				<mat-menu #topics="matMenu"> <a mat-menu-item
+					[matMenuTriggerFor]="testing">Testing</a> <a mat-menu-item
+					[matMenuTriggerFor]="abs_rich_client">ABS Rich Client</a> <a
+					href='/training/cisl' mat-menu-item>CISL</a> </mat-menu> <mat-menu
+					#testing="matMenu"> <a mat-menu-item
+					href='/training/Smoke Test'>Smoke Test</a> <a mat-menu-item
+					href='/training/TOSCA'>TOSCA</a> <a mat-menu-item
+					href='/training/selenium'>Selenium</a> <a mat-menu-item
+					href='/training/dummy'>Dummy</a> </mat-menu> <mat-menu
+					#abs_rich_client="matMenu"> <a href='#' mat-menu-item>Dialog
+					Layer</a> <a href='#' mat-menu-item>View Layer</a> <a href='#'
+					mat-menu-item>Business Layer</a> <a href='#' mat-menu-item>Persistent
+					Layer</a> </mat-menu>
+			</li>
+			<li class="nav-item dropdown">
+				<button mat-button class="bot-nav" (click)="navigateToTraining()">Admin
+					Panel</button>
+			</li>
 		</ul>
 	</div>
 </nav>

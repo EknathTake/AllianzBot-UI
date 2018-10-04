@@ -25,6 +25,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { BotAssesmentScreenComponent } from './bot-assesment-screen/bot-assesment-screen.component';
 import { BotAssesmentResultScreenComponent } from './bot-assesment-result-screen/bot-assesment-result-screen.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BotAdminPanelComponent } from './bot-admin-panel/bot-admin-panel.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BotPageNotFoundScreenComponent,
     BotTrainingScreenComponent,
     BotAssesmentScreenComponent,
-    BotAssesmentResultScreenComponent
+    BotAssesmentResultScreenComponent,
+    BotAdminPanelComponent
   ],
   imports: [
     BrowserModule,

@@ -5,6 +5,7 @@ import {BotTrainingScreenComponent} from './bot-training-screen/bot-training-scr
 import {BotAssesmentScreenComponent} from './bot-assesment-screen/bot-assesment-screen.component';
 import {BotPageNotFoundScreenComponent} from './bot-page-not-found-screen/bot-page-not-found-screen.component';
 import {BotAssesmentResultScreenComponent} from './bot-assesment-result-screen/bot-assesment-result-screen.component';
+import {BotAdminPanelComponent} from './bot-admin-panel/bot-admin-panel.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: 'assesment/finished/result',
     component: BotAssesmentResultScreenComponent
+  },
+  {
+    path: 'admin/training',
+    component: BotAdminPanelComponent
   },
   {
     path: '**',
