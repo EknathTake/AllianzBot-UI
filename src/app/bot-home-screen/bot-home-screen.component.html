@@ -17,10 +17,12 @@
 		<div class="col-md-1"></div>
 
 	</div>
-	<div *ngIf="answers.length > 1">
+	<div *ngIf="answers.length > 0">
 		<mat-card style="margin-bottom: 10px;" *ngFor="let ans of answers">
 		<mat-card-content>
-		<p style="white-space: pre-line">{{ans.answer}}</p>
+		<p *ngIf="ans.answer != null" style="white-space: pre-line">{{ans.answer}}</p>
+		<p *ngIf="ans.failedCategory != null" style="white-space: pre-line">{{ans.failedCategory}}</p>
+		<p *ngIf="ans.failedLog != null" style="white-space: pre-line">{{ans.failedLog}}</p>
 		</mat-card-content> <mat-card-actions>
 		<button mat-button (click)="sendLike(ans, searchValue)">
 			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"

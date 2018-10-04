@@ -35,4 +35,12 @@ export class ServerService {
   finishAssesment() {
     return this.http.get(baseUrl + 'assesment/finished', {headers: this.headers});
   }
+
+  loadAssesmentInSolr() {
+    return this.http.post(baseUrl + 'extract/document', { },  {headers: this.headers});
+  }
+
+  loadDocumentsInSolr() {
+    return this.http.post(baseUrl + 'assesment/questions', { },  {headers: this.headers});
+  }
 }
