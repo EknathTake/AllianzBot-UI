@@ -4,6 +4,7 @@ import {BotHomeScreenComponent} from './bot-home-screen/bot-home-screen.componen
 import {BotTrainingScreenComponent} from './bot-training-screen/bot-training-screen.component';
 import {BotAssesmentScreenComponent} from './bot-assesment-screen/bot-assesment-screen.component';
 import {BotPageNotFoundScreenComponent} from './bot-page-not-found-screen/bot-page-not-found-screen.component';
+import {BotAssesmentResultScreenComponent} from './bot-assesment-result-screen/bot-assesment-result-screen.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'assesment/:topic',
     component: BotAssesmentScreenComponent
+  },
+  {
+    path: 'assesment/finished/result',
+    component: BotAssesmentResultScreenComponent
   },
   {
     path: '**',

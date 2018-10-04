@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule} from '@angular/forms';
+import { MatIconModule} from '@angular/material/icon';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,14 +15,16 @@ import { BotPageNotFoundScreenComponent } from './bot-page-not-found-screen/bot-
 import { BotTrainingScreenComponent } from './bot-training-screen/bot-training-screen.component';
 import {
   MatButtonModule,
-  MatButtonToggleModule, MatCheckboxModule,
+  MatButtonToggleModule, MatCardModule, MatCheckboxModule,
   MatDialogModule,
   MatInputModule,
   MatMenuModule,
   MatRadioModule
 } from '@angular/material';
+import {MatGridListModule} from '@angular/material/grid-list';
 import { BotAssesmentScreenComponent } from './bot-assesment-screen/bot-assesment-screen.component';
 import { BotAssesmentResultScreenComponent } from './bot-assesment-result-screen/bot-assesment-result-screen.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -47,6 +50,10 @@ import { BotAssesmentResultScreenComponent } from './bot-assesment-result-screen
     MatButtonToggleModule,
     MatMenuModule,
     MatCheckboxModule,
+    MatCardModule,
+    MatIconModule,
+    BrowserAnimationsModule,
+    MatGridListModule
     MDBBootstrapModule.forRoot()
   ],
   providers: [],

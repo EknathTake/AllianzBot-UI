@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ServerService} from '../server.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-bot-assesment-result-screen',
@@ -7,9 +9,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BotAssesmentResultScreenComponent implements OnInit {
 
-  constructor() { }
+  allianzBotExam = {
+    startTime: '',
+    finishTime: '',
+    user: {
+      userId: 0,
+      username: '',
+      password: ''
+    },
+    score: 0,
+    topic: ''
+  };
+
+  constructor(private serverService: ServerService) {  }
+  submitAssesment() {
+    this.serverService.finishAssesment().subscribe((response) => {
+      this.allianzBotExam = response.json();
+      console.log('finishAssesment: ' + this.allianzBotExam);
+    }, (error) => {
+      console.log(error);
+    });
+  }
 
   ngOnInit() {
+    this.submitAssesment();
   }
 
 }

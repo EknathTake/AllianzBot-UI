@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ServerService} from '../server.service';
 import {NgxSpinnerService} from 'ngx-spinner';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-bot-assesment-screen',
@@ -28,7 +28,7 @@ export class BotAssesmentScreenComponent implements OnInit {
   }];
 
   constructor(private serverService: ServerService, private spinner: NgxSpinnerService,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute, private router: Router) {
   }
 
   ngOnInit() {
@@ -53,7 +53,6 @@ export class BotAssesmentScreenComponent implements OnInit {
 
   loadNextQuestionAt(index: number) {
     this.postUserChoiceAnswer();
-
     if (index < this.totalQuestions - 1) {
       this.currentIndex = index + 1;
     }
@@ -94,18 +93,15 @@ export class BotAssesmentScreenComponent implements OnInit {
 
   postUserChoiceAnswer() {
     console.log('posting succesfully :' + this.questions[this.currentIndex]);
-    this.serverService.postUserChoiceAnswer(this.questions[this.currentIndex]).subscribe((response) =>{
-      const value = response.json();
-      console.log(value);
+    this.serverService.postUserChoiceAnswer(this.questions[this.currentIndex]).subscribe((response) => {
+     // const value = response.json();
+     // console.log('postUserChoiceAnswer' + value);
     });
     console.log('posted succesfully :' + this.questions[this.currentIndex]);
   }
 
   finishAssesment() {
     this.postUserChoiceAnswer();
-    this.serverService.finishAssesment().subscribe((response) => {
-      const val = response.json();
-      console.log(val);
-    });
+    this.router.navigateByUrl('assesment/finished/result');
   }
 }

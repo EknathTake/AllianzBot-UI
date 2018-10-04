@@ -13,7 +13,7 @@ export class BotTrainingScreenComponent implements OnInit {
   constructor(private route: ActivatedRoute, private sanitizer: DomSanitizer) {
     this.route.params.subscribe(params => {
       this.topic = params['topic'];
-      //alert(this.topic);
+      // alert(this.topic);
     });
   }
 
@@ -21,6 +21,7 @@ export class BotTrainingScreenComponent implements OnInit {
   }
 
   loadDocument() {
-    return this.sanitizer.bypassSecurityTrustResourceUrl('http://www.allianz-bot.com:8080/allianz-bot/allianz-bot/documents/' + this.topic + '.pdf');
+    return this.sanitizer
+              .bypassSecurityTrustResourceUrl('http://www.allianz-bot.com:8080/allianz-bot/allianz-bot/documents/' + this.topic + '.pdf');
   }
 }

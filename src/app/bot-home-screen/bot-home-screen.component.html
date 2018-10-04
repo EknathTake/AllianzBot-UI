@@ -1,43 +1,44 @@
-<form>
-  <label><em>YourQuestion</em></label>
-  <input id="searchValue" name="serachValue" type="text" class="form-control" [(ngModel)]="searchValue">
-  <br>
-  <!--<mat-form-field>
-    <input matInput name="serachValue" [(ngModel)]="searchValue" placeholder="Ask me your question!" style="width: 100%;">
-  </mat-form-field>-->
-  <button
-    class="btn btn-primary"
-    (click)="onGetServerSearch(searchValue)">Send to server
-  </button>
-</form>
-<br>
 <div class="container">
-  <div class="panel-group">
-    <div class="panel panel-primary">
-      <div class="panel-heading">Answer</div>
-      <div class="panel-body">
-        <ul class="list-group" *ngFor="let ans of answers">
-          <li class="list-group-item"><p style="white-space: pre-line">{{ans.answer}}</p></li>
-          <br/>
-          <div>
-            <span (click)="sendLike(ans, searchValue)">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-               <path
-                 d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-1.91l-.01-.01L23 10z"/>
-              </svg>
-            </span>
+	<div class="row">
+		<div class="col-md-3"></div>
+		<div class="col-md-8">
+			<form class="bot-search-form">
+				<mat-form-field class="form-full-width"> <input
+					matInput #message maxlength="256" class="bot-search-input"
+					placeholder="Aks your Question here." name="serachValue"
+					[(ngModel)]="searchValue"> <mat-icon matSuffix></mat-icon>
+				<mat-hint align="end" class="bot-search-input">{{message.value.length}}
+				/ 256</mat-hint> </mat-form-field>
 
-            &nbsp; <span (click)="sendDisLike(ans, searchValue)">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-              <path
-                d="M15 3H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v1.91l.01.01L1 14c0 1.1.9 2 2 2h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 23l6.59-6.59c.36-.36.58-.86.58-1.41V5c0-1.1-.9-2-2-2zm4 0v12h4V3h-4z"/>
+				<button mat-raised-button color="primary"
+					(click)="onGetServerSearch(searchValue)">Search</button>
+			</form>
+		</div>
+		<div class="col-md-1"></div>
+
+	</div>
+	<div *ngIf="answers.length > 1">
+		<mat-card style="margin-bottom: 10px;" *ngFor="let ans of answers">
+		<mat-card-content>
+		<p style="white-space: pre-line">{{ans.answer}}</p>
+		</mat-card-content> <mat-card-actions>
+		<button mat-button (click)="sendLike(ans, searchValue)">
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+				viewBox="0 0 24 24">
+               <path
+					d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-1.91l-.01-.01L23 10z" />
               </svg>
-            </span>
-          </div>
-          <hr>
-        </ul>
-      </div>
-    </div>
-  </div>
+			LIKE
+		</button>
+		<button mat-button (click)="sendDisLike(ans, searchValue)">
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+				viewBox="0 0 24 24">
+              <path
+					d="M15 3H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v1.91l.01.01L1 14c0 1.1.9 2 2 2h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 23l6.59-6.59c.36-.36.58-.86.58-1.41V5c0-1.1-.9-2-2-2zm4 0v12h4V3h-4z" />
+              </svg>
+			DISLIKE
+		</button>
+		</mat-card-actions> </mat-card>
+	</div>
 </div>
 

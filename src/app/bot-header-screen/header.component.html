@@ -1,49 +1,34 @@
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-  <a class="navbar-brand" href="/home">
-    <div> Allianz Bot</div>
-    <span>Answer to all your question</span>
-  </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="collapsibleNavbar">
-    <ul class="navbar-nav">
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-           aria-expanded="false">Training</a>
-        <ul class='dropdown-menu'>
-          <li class='dropdown-submenu'>
-            <a tabindex='-1' href='#'>
-              <span class='glyphicon glyphicon-cog'></span> Testing
-            </a>
-            <ul class='dropdown-menu' role='menu'>
-              <li><a tabindex='-1' href='/training/TOSCA'> TOSCA </a></li>
-              <li role='separator' class='divider'></li>
-              <li><a tabindex='-1' href='/training/Smoke Test'> Smoke Test </a></li>
-              <li role='separator' class='divider'></li>
-              <li><a tabindex='-1' href='/training/dummy'> Selenium </a></li>
-            </ul>
-          </li>
-          <li role='separator' class='divider'></li>
-          <li class='dropdown-submenu'>
-            <a tabindex='-1' href='#'>
-              <span class='glyphicon glyphicon-list-alt'></span> ABS Rich Client
-            </a>
-            <ul class='dropdown-menu' role='menu'>
-              <li><a tabindex='-1' href='#'> View Layer </a></li>
-              <li role='separator' class='divider'></li>
-              <li><a tabindex='-1' href='#'> Dialog Layer </a></li>
-              <li role='separator' class='divider'></li>
-              <li><a tabindex='-1' href='#'> Business Layer </a></li>
-              <li role='separator' class='divider'></li>
-              <li><a tabindex='-1' href='#'> Persistence Layer </a></li>
-            </ul>
-          </li>
-          <li role='separator' class='divider'></li>
-          <li><a href='#'><span class='glyphicon glyphicon-list-alt'></span> CISL </a></li>
-        </ul>
-      </li>
-    </ul>
-  </div>
+	<a class="navbar-brand" href="/home">
+		<div>Allianz Bot</div> <span>Answer to all your question</span>
+	</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse"
+		data-target="#collapsibleNavbar">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="collapsibleNavbar">
+		<ul class="navbar-nav">
+			<button mat-button [matMenuTriggerFor]="animals" class="bot-nav">Training</button>
+	
+			<mat-menu #animals="matMenu">
+				<a mat-menu-item [matMenuTriggerFor]="testing">Testing</a>
+				<a mat-menu-item [matMenuTriggerFor]="abs_rich_client">ABS Rich Client</a> 
+				<a href='/training/cisl' mat-menu-item>CISL</a>
+			</mat-menu>
+	
+			<mat-menu #testing="matMenu">
+			   <a mat-menu-item href='/training/Smoke Test'>Smoke Test</a>
+			   <a mat-menu-item href='/training/TOSCA'>TOSCA</a> 
+			   <a mat-menu-item href='/training/selenium'>Selenium</a> 
+			   <a mat-menu-item href='/training/dummy'>Dummy</a> 
+			 </mat-menu>
+	
+			<mat-menu #abs_rich_client="matMenu"> 
+				<a href='#' mat-menu-item>Dialog Layer</a> 
+				<a href='#' mat-menu-item>View Layer</a> 
+				<a href='#' mat-menu-item>Business Layer</a>
+				<a href='#' mat-menu-item>Persistent Layer</a> 
+			</mat-menu>
+		</ul>
+	</div>
 </nav>
-<br>

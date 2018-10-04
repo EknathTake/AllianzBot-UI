@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Headers, Http} from '@angular/http';
 
-const baseUrl: string = 'http://localhost:8080/allianz-bot/';
+const baseUrl = 'http://localhost:8080/allianz-bot/';
 
 @Injectable({
   providedIn: 'root'
@@ -33,6 +33,6 @@ export class ServerService {
   }
 
   finishAssesment() {
-    return this.http.post(baseUrl + 'assesment/finished', {}, {headers: this.headers});
+    return this.http.get(baseUrl + 'assesment/finished', {headers: this.headers});
   }
 }
