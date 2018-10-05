@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ServerService} from '../server.service';
 import {Router} from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-bot-assesment-result-screen',
@@ -10,24 +11,40 @@ import {Router} from '@angular/router';
 export class BotAssesmentResultScreenComponent implements OnInit {
 
   allianzBotExam = {
-    startTime: '',
-    finishTime: '',
+    startTime: {},
+    finishTime: {},
     user: {
       userId: 0,
       username: '',
       password: ''
     },
     score: 0,
-    topic: ''
+    topic: '',
+    percentages: 0,
+    totalMarks: 0
   };
 
-  constructor(private serverService: ServerService) {  }
+  constructor(private serverService: ServerService, private spinner: NgxSpinnerService) {  }
   submitAssesment() {
+    this.spinner.show();
     this.serverService.finishAssesment().subscribe((response) => {
       this.allianzBotExam = response.json();
       console.log('finishAssesment: ' + this.allianzBotExam);
+      this.spinner.hide();
     }, (error) => {
       console.log(error);
+      this.spinner.hide();
+    });
+  }
+
+  sendMailToLead() {
+    this.spinner.show();
+    this.serverService.sendMailToLead(this.allianzBotExam).subscribe((response) => {
+      console.log(response);
+      this.spinner.hide();
+    }, (error) => {
+      console.log(error);
+      this.spinner.hide();
     });
   }
 

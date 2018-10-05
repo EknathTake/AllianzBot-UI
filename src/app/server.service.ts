@@ -43,4 +43,8 @@ export class ServerService {
   loadDocumentsInSolr() {
     return this.http.post(baseUrl + 'assesment/questions', { },  {headers: this.headers});
   }
+
+  sendMailToLead(examResult) {
+    return this.http.post(baseUrl + 'assesment/result', examResult, {headers: this.headers});
+  }
 }
