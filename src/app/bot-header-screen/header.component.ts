@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit {
   }
   
   navigateToHome() {
-  this.router.navigateByUrl('');
+  	this.router.navigateByUrl('');
   }
 
 }

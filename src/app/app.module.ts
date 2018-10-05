@@ -55,7 +55,7 @@ import { BotAdminPanelComponent } from './bot-admin-panel/bot-admin-panel.compon
     MatCardModule,
     MatIconModule,
     BrowserAnimationsModule,
-    MatGridListModule
+    MatGridListModule,
     MDBBootstrapModule.forRoot()
   ],
   providers: [],

@@ -7,7 +7,7 @@ const baseUrl = 'http://localhost:8080/allianz-bot/';
   providedIn: 'root'
 })
 export class ServerService {
-  headers = new Headers({'Content-Type': 'application/json'});
+  headers = new Headers({'Content-Type': 'application/json', 'User-Id': '1'});
 
   constructor(private http: Http) {
   }
@@ -33,7 +33,7 @@ export class ServerService {
   }
 
   finishAssesment() {
-    return this.http.get(baseUrl + 'assesment/finished', {headers: this.headers});
+    return this.http.post(baseUrl + 'assesment/finished', { }, {headers: this.headers});
   }
 
   loadAssesmentInSolr() {
