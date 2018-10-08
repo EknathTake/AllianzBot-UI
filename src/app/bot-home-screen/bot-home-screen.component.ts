@@ -16,7 +16,7 @@ export class BotHomeScreenComponent implements OnInit {
     score: 0,
     answer: '',
     question: '',
-    allianzBotTestCenterResponse: {
+    allianzBotTestCenterData: {
       team: '',
       testCaseId: '',
       autoStatus: '',
