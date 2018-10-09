@@ -26,6 +26,7 @@ import { BotAssesmentScreenComponent } from './bot-assesment-screen/bot-assesmen
 import { BotAssesmentResultScreenComponent } from './bot-assesment-result-screen/bot-assesment-result-screen.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BotAdminPanelComponent } from './bot-admin-panel/bot-admin-panel.component';
+import { BotRegistrationScreenComponent } from './bot-registration-screen/bot-registration-screen.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { BotAdminPanelComponent } from './bot-admin-panel/bot-admin-panel.compon
     BotTrainingScreenComponent,
     BotAssesmentScreenComponent,
     BotAssesmentResultScreenComponent,
-    BotAdminPanelComponent
+    BotAdminPanelComponent,
+    BotRegistrationScreenComponent
   ],
   imports: [
     BrowserModule,

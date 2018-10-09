@@ -56,6 +56,7 @@ export class BotHomeScreenComponent implements OnInit {
           console.log(error);
         }
       );
+      this.spinner.hide();
   }
 
   sendLike(oldDocument, query) {
@@ -79,6 +80,7 @@ export class BotHomeScreenComponent implements OnInit {
           console.log(error);
         }
       );
+      this.spinner.hide();
   }
 
   sendDisLike(oldDocument, query) {
@@ -97,6 +99,7 @@ export class BotHomeScreenComponent implements OnInit {
         },
         (error) => console.log(error)
       );
+      this.spinner.hide();
   }
 
 changeCurrent(c) {
