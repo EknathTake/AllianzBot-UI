@@ -60,7 +60,7 @@ import { BotRegistrationScreenComponent } from './bot-registration-screen/bot-re
     MatGridListModule,
     MDBBootstrapModule.forRoot()
   ],
-  providers: [],
+  providers: [ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

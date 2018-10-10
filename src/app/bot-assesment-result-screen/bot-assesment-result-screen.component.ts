@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ServerService} from '../server.service';
+import {ServerService} from '../_services/server.service';
 import {Router} from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 
@@ -21,7 +21,8 @@ export class BotAssesmentResultScreenComponent implements OnInit {
     score: 0,
     topic: '',
     percentages: 0,
-    totalMarks: 0
+    totalMarks: 0,
+    finalResult: ''
   };
 
   constructor(private serverService: ServerService, private spinner: NgxSpinnerService) {  }

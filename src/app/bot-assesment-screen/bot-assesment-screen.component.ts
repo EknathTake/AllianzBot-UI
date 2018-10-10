@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ServerService} from '../server.service';
+import {ServerService} from '../_services/server.service';
 import {NgxSpinnerService} from 'ngx-spinner';
 import {ActivatedRoute, Router} from '@angular/router';
 
