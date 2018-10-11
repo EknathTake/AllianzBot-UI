@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ServerService} from '../_services/server.service';
 import {NgxSpinnerService} from 'ngx-spinner';
+import { PagerService } from '../_services/pager.service';
 
 @Component({
   selector: 'app-bot-home-screen',
@@ -44,12 +45,20 @@ export class BotHomeScreenComponent implements OnInit {
     allianzBotDocument: {},
     status: {
       timestamp: '',
-	    statusCode: 0,
-	    message: ''
+      statusCode: 0,
+      message: ''
     }
   }
 
-  constructor(private serverService: ServerService, private spinner: NgxSpinnerService) {
+   // pager object
+   pager: any = {};
+
+   // paged items
+   pagedItems: any[];
+
+  constructor(private serverService: ServerService,
+     private spinner: NgxSpinnerService,
+     private pagerService: PagerService) {
   }
 
   ngOnInit() {
@@ -62,6 +71,8 @@ export class BotHomeScreenComponent implements OnInit {
           this.spinner.hide();
           const jsonData = response.json();
           this.changeCurrent(jsonData);
+          // initialize to page 1
+          this.setPage(1);
         },
         (error) => {
           this.spinner.hide();
@@ -135,5 +146,12 @@ export class BotHomeScreenComponent implements OnInit {
 
 changeCurrent(c) {
     this.answers = c.documents;
-  }
+}
+setPage(page: number) {
+  // get pager object from service
+  this.pager = this.pagerService.getPager(this.answers.length, page);
+
+  // get current page of items
+  this.pagedItems = this.answers.slice(this.pager.startIndex, this.pager.endIndex + 1);
+}
 }

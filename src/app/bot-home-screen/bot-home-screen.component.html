@@ -20,7 +20,7 @@
 	</div>
 	
 	<div *ngIf="answers.length > 1">
-		<mat-card style="margin-bottom: 10px;" *ngFor="let ans of answers">
+		<mat-card style="margin-bottom: 10px;" *ngFor="let ans of pagedItems">
 		<mat-card-content>
 		<p *ngIf="ans.answer != null" style="white-space: pre-line">{{ans.answer}}</p>
 		<span *ngIf="ans.allianzBotTestCenterData != null">
@@ -53,6 +53,30 @@
 			DISLIKE
 		</button>
 		</mat-card-actions> </mat-card>
+		<div class="row">
+				<div class="col-md-3"></div>
+				<div class="col-md-8">
+					<!-- pager -->
+					<ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+							<li [ngClass]="{disabled:pager.currentPage === 1}">
+								<a (click)="setPage(1)">First</a>
+							</li>
+							<li [ngClass]="{disabled:pager.currentPage === 1}">
+								<a (click)="setPage(pager.currentPage - 1)">Previous</a>
+							</li>
+							<li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+								<a (click)="setPage(page)">{{page}}</a>
+							</li>
+							<li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+								<a (click)="setPage(pager.currentPage + 1)">Next</a>
+							</li>
+							<li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+								<a (click)="setPage(pager.totalPages)">Last</a>
+							</li>
+						</ul>
+				</div>
+				<div class="col-md-3"></div>
+		
 	</div>
 </div>
 
