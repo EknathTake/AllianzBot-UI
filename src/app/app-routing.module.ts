@@ -6,12 +6,22 @@ import {BotAssesmentScreenComponent} from './bot-assesment-screen/bot-assesment-
 import {BotPageNotFoundScreenComponent} from './bot-page-not-found-screen/bot-page-not-found-screen.component';
 import {BotAssesmentResultScreenComponent} from './bot-assesment-result-screen/bot-assesment-result-screen.component';
 import {BotAdminPanelComponent} from './bot-admin-panel/bot-admin-panel.component';
+import { BotLoginScreenComponent } from './bot-login-screen/bot-login-screen.component';
+import { BotRegistrationScreenComponent } from './bot-registration-screen/bot-registration-screen.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'login',
     pathMatch: 'full'
+  },
+  {
+    path: 'login',
+    component: BotLoginScreenComponent
+  },
+  {
+    path: 'register',
+    component: BotRegistrationScreenComponent
   },
   {
     path: 'home',

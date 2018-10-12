@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MatIconModule} from '@angular/material/icon';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -19,7 +19,16 @@ import {
   MatDialogModule,
   MatInputModule,
   MatMenuModule,
-  MatRadioModule
+  MatRadioModule,
+  MatToolbarModule,
+  MatDatepickerModule,
+  MatSelectModule,
+  MatDatepickerToggle,
+  MatOptionModule,
+  MatFormFieldModule,
+  MatNativeDateModule,
+  MatSlideToggleModule,
+  MatProgressSpinnerModule
 } from '@angular/material';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { BotAssesmentScreenComponent } from './bot-assesment-screen/bot-assesment-screen.component';
@@ -27,6 +36,7 @@ import { BotAssesmentResultScreenComponent } from './bot-assesment-result-screen
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BotAdminPanelComponent } from './bot-admin-panel/bot-admin-panel.component';
 import { BotRegistrationScreenComponent } from './bot-registration-screen/bot-registration-screen.component';
+import { BotLoginScreenComponent } from './bot-login-screen/bot-login-screen.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +49,8 @@ import { BotRegistrationScreenComponent } from './bot-registration-screen/bot-re
     BotAssesmentScreenComponent,
     BotAssesmentResultScreenComponent,
     BotAdminPanelComponent,
-    BotRegistrationScreenComponent
+    BotRegistrationScreenComponent,
+    BotLoginScreenComponent
   ],
   imports: [
     BrowserModule,
@@ -58,6 +69,15 @@ import { BotRegistrationScreenComponent } from './bot-registration-screen/bot-re
     MatIconModule,
     BrowserAnimationsModule,
     MatGridListModule,
+    ReactiveFormsModule,
+    MatToolbarModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatFormFieldModule,
+    MatSlideToggleModule,
+    MatProgressSpinnerModule,
     MDBBootstrapModule.forRoot()
   ],
   providers: [ ],
